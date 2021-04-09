@@ -140,8 +140,7 @@ class Results:
         >>> results.requests_per_minute()
         34
         """
-        return round(60 * len(self.requests)/ self.total_time)
-
+        return round(60 * len(self.requests) / self.total_time)
 
     def requests_per_second(self) -> int:
         """
@@ -168,4 +167,4 @@ class Results:
         >>> results.requests_per_second()
         1
         """
-        return  round(len(self.requests) / self.total_time)
+        return round(len(self.requests) / self.total_time)

@@ -15,7 +15,7 @@ def cli(requests, concurrency, json_file, url):
     output_file = None
     if json_file:
         try:
-            output_file = open(json_file, 'w')
+            output_file = open(json_file, "w")
         except:
             print(f"Unable to open file {json_file}")
             sys.exit(1)
@@ -31,14 +31,19 @@ def cli(requests, concurrency, json_file, url):
 
 def display(results: Results, json_file: io):
     if json_file:
-        json.dump({
-            "successful_requests": results.successful(),
-            "slowest": results.slowest(),
-            "fastest": results.fastest(),
-            "average": results.average(),
-            "per_minute": results.requests_per_minute(),
-            "per_second": results.requests_per_second(),
-        })
+        json.dump(
+            {
+                "successful_requests": results.successful(),
+                "slowest": results.slowest(),
+                "fastest": results.fastest(),
+                "average": results.average(),
+                "per_minute": results.requests_per_minute(),
+                "per_second": results.requests_per_second(),
+            },
+            json_file
+        )
+        json_file.close()
+        print(".... done! Completed output to json.")
     else:
         print(".... done!")
         print("--- results ---")
