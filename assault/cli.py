@@ -40,7 +40,7 @@ def display(results: Results, json_file: io):
                 "per_minute": results.requests_per_minute(),
                 "per_second": results.requests_per_second(),
             },
-            json_file
+            json_file,
         )
         json_file.close()
         print(".... done! Completed output to json.")
@@ -53,4 +53,3 @@ def display(results: Results, json_file: io):
         print(f"Average response:\t {results.average()}")
         print(f"Requests per minute:\t {results.requests_per_minute()}")
         print(f"Requests per second:\t {results.requests_per_second()}")
-    pass
